@@ -51,20 +51,6 @@ window = sg.Window('Where we boutta eat at?', layout)
 event, values = window.read()
 window.close()
 
-print(event, values[0])
-
-print('\nWhat tf kinda food u tryna eat??\n')
-
-print('Mexican')
-print('Tacos')
-print('Pizza')
-print('Asian')
-print('Burger')
-print('Sandwich')
-print('Chicken')
-print('Seafood')
-print('\n')
-
 user_in = values[0]
 print('\nYou have picked ' + user_in)
 
