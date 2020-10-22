@@ -1,5 +1,6 @@
 import random
 import webbrowser
+import PySimpleGUI as sg
 
 mexican = ['https://rb.gy/pcvbh5', 'https://www.chuys.com/menu']
 tacos = ['https://rb.gy/npkjxo', 'https://rb.gy/z09fln']
@@ -15,6 +16,42 @@ chicken = ['https://rb.gy/fv7mto', 'https://rb.gy/69bt5b', 'https://rb.gy/dlooiu
            'https://rb.gy/8wgp2b', 'https://chickene.com/menu/', 'https://www.popeyes.com/explore-menu',
            'http://www.bushschicken.com/menu/', 'https://rb.gy/wepzco']
 seafood = ['https://rb.gy/qvyde1', 'https://rb.gy/ispfgk']
+names = ['Mexican', 'Tacos', 'Pizza', 'Asian', 'Burger', 'Sandwich', 'Chicken', 'Seafood']
+
+
+sg.theme('DarkBlue')
+
+layout = [
+    [sg.Text('Enter a choice from the list: ')],
+    [sg.Text('In the mood for.. ', size=(15, 1)), sg.InputText()],
+    [sg.Listbox(names,
+    default_values=None,
+    select_mode=None,
+    change_submits=False,
+    enable_events=False,
+    bind_return_key=False,
+    size=(15, 15),
+    disabled=False,
+    auto_size_text=None,
+    font=None,
+    no_scrollbar=False,
+    background_color=None,
+    text_color=None,
+    key=None,
+    k=None,
+    pad=None,
+    tooltip=None,
+    right_click_menu=None,
+    visible=True,
+    metadata=None)],
+    [sg.Submit(), sg.Cancel()]
+]
+
+window = sg.Window('Where we boutta eat at?', layout)
+event, values = window.read()
+window.close()
+
+print(event, values[0])
 
 print('\nWhat tf kinda food u tryna eat??\n')
 
@@ -28,7 +65,7 @@ print('Chicken')
 print('Seafood')
 print('\n')
 
-user_in: str = input('Enter a choice from above: ')
+user_in = values[0]
 print('\nYou have picked ' + user_in)
 
 if user_in == 'Mexican' or user_in == 'mexican':
